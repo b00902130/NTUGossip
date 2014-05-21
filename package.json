@@ -1,0 +1,21 @@
+{
+  "name": "herokuTest",
+  "version": "0.0.0",
+  "description": "My first Heroku stuff.",
+  "main": "web.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hahaha"
+  ],
+  "author": "WilsonHuangJi",
+  "license": "ISC",
+  "dependencies": {
+    "logfmt": "^1.1.2",
+    "express": "^4.3.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
