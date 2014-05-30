@@ -17,6 +17,7 @@ mongoose.connect(mongoURL, function(err){
     console.log("connect success");
   }
 }); // connect to our database
+var counter = 1;
 
 app.set('view engine', 'jade');
 app.set('views', __dirname+"/views" );
@@ -41,24 +42,31 @@ app.post('/message', function(req, res) {
       return res.send('Error 400: Post syntax incorrect.');
     }
     var message = new gossipObject;
-    message.id = "2";
-    message.text = req.body.mes;
-    message.date = new Date();
 
-    console.log("nn", message);
+    // gossipObject.count({}, function(err, count){
+    //   message.id = count.toString();
+    // })
+    message.id =  counter.toString();
+
+    message.text = req.body.mes;
+
     message.save(function(err, data){
       if(err){
         console.log("err");
         console.log("failm da", data);
-        res.send("err");
+        alert('噢不，Something Wrong～')
+        res.statusCode = 400;
+        return res.send("Error 400: Save Failed");
       }
       else{
         console.log("Success");
         console.log("suc, da", data);
-        res.send("wooo");
+        // res.redirect(200,'/');
+        counter++;
+        res.statusCode = 200;
+        return res.send({re: '/'});
       }
     });
-
 });
 
 

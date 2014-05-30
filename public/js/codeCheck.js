@@ -12,9 +12,16 @@ function createCode() {
         checkCode.className = "code";
         checkCode.innerHTML = code;
     }
+    $('#inputCode').focus();
 }
 function validateCode(){
     var inputCode = document.getElementById("inputCode").value;
+    var text = $('#gossipText').val();
+    // alert(text);
+    if( text == ""){
+      alert("ff");
+      return "Failed";
+    }
     if (inputCode.length <= 0){
         alert("請輸入驗證碼！");
     }
@@ -23,24 +30,41 @@ function validateCode(){
         createCode();
     }
     else{
-        alert("驗證碼正確！");
+        // alert("驗證碼正確！");
         // Post to server,
-        $.ajax({
-          type: "POST",
-          url: "http://localhost:5000/message",
-          contentType: "application/json; charset=utf-8",
-          dataType: "json",
-          data: JSON.stringify({
-              mes: "Hello Test!!!"
-          }),
-          success: function (data) {
-              console.log("Success: POST new item");
-          },
-          error: function (rsp){
-              console.log("Failed: POST new item");
-              console.log(rsp);
-          }
-      });
+        if(confirm("驗證碼正確！確定送出？")){
+          $.ajax({
+            type: "POST",
+            url: "http://localhost:5000/message",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({
+              mes: text
+            }),
+            success: function (data) {
+                console.log("Success: POST new item");
+                alert("送出成功。");
+                if (typeof(data.re) == 'string')
+                  window.location = data.re;
+            },
+            error: function (rsp){
+                console.log("Failed: POST new item");
+                // console.log(rsp);
+                alert("噢不，好像失敗了。");
+            }
+          });
+        }
+        else{
+          ;
+        }
+
 
     }
 }
+
+$(document).keypress(function(event){
+  var keycode = (event.keyCode ? event.keyCode : event.which);
+  if(keycode == '13' && !$("#gossipText").is(":focus")){
+    validateCode();
+  }
+})
