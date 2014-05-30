@@ -193,4 +193,9 @@ a:hover{
   width: 120px;
   height: 22px;
   float: center;
+  border: 0px;
 }
+
+/*textarea:focus{
+  outline: 0;
+}*/
