@@ -19,7 +19,7 @@ app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res) {
-  res.render('index',{title: "I love big tongue!"});
+  res.render('index',{title: "NTU-GOSSIP"});
 });
 
 
