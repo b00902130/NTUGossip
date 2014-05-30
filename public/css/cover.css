@@ -55,7 +55,7 @@ body {
 
 /* Padding for spacing */
 .inner {
-  padding: 30px;
+  padding: 20px;
 }
 
 
@@ -164,22 +164,20 @@ body {
 
 .code 
 { 
-        background:url(http://www.photophoto.cn/m64/024/048/0240480183.jpg); 
+        background:url(/img/backgg.png);
         font-family:Georgia; 
         font-style:italic; 
-        color :rgba(205,159,213,0.8); 
+        color :rgba(105,1,22,0.6); 
         font-size:30px; 
-        border:0; 
         padding:2px 3px; 
-        letter-spacing:3px; 
         font-weight:bolder;             
-        float:left;            
-        cursor:pointer; 
+        cursor: pointer; 
+        position: relative;
+        left: 36%;
+        padding: 5px;
         width:190px; 
         height:60px; 
         line-height: 60px; 
-        text-align:center; 
-        vertical-align:middle;     
 }
 
 a{
@@ -192,7 +190,7 @@ a:hover{
 }
 
 #inputCode{
-  width: 80px;
+  width: 120px;
   height: 22px;
-  float: right;
+  float: center;
 }

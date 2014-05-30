@@ -27,24 +27,22 @@ html
 					.inner.cover(onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;")
 						h1.cover-heading(style="font-size:60px;") 
 							八卦台大
-						p.lead(style="font-size:14px;") 八卦無所不在
+						p.lead(style="font-size:20px;") 問卦、爆卦，關注台大名人或潮人，且保有隱私。
 						.text1(style="text-align:center;")
 							textarea(style="width:500px;height:150px;background-color:#222;color:white;" name="gossipText")
-							.code(onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;" id="checkCode" onclick="createCode()")
-
-						form#form1(onsubmit="validateCode()")
-							.code1(style="text-align:center;")
-								input#inputCode(type="text")
-							.code2(style="text-align:center;")
-								input.btn.btn-danger.btn-lg#Button1(onclick="validateCode();" type="button" value="Gossip!") 
+					.code#checkCode(onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;" onclick="createCode()")
+					.gossip1(style="height:25px;")
+						input#inputCode(style="background-color:#444;text-align:center; float:top;" type="text" placeholder="點圖獲取驗證碼")
+					.gossip2(style="height:60px;")
+						input.btn.btn-danger.btn-lg#Button1(onclick="validateCode();" type="button" value="Gossip!") 
 
 
 
 					.mastfoot
 						.inner
+							p(style="font-size:16px; font-weight:lighter;") 本站保有「碼賽克」內文之權利。
 							p(style="font-size:16px; font-weight:lighter;") Contact by ntugossip@gmail.com
 
-					
 
 
 
