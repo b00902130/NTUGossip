@@ -8,6 +8,8 @@ html
 		link(rel="shortcut icon" href="favicon.ico")
 		link(href="/css/cover.css" rel="stylesheet")
 		link(href="/css/bootstrap.min.css" rel="stylesheet")
+		//- link(href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet")
+		link(href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet")
 		script(type='text/javascript', src="/js/ie-emulation-modes-warning.js")
 		script(type='text/javascript', src="/js/ie10-viewport-bug-workaround.js")
 		script(type='text/javascript', src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
@@ -25,22 +27,24 @@ html
 							h3.masthead-brand NTU Gossip
 
 					.inner.cover(onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;")
-						h1.cover-heading(style="font-size:60px;") 
-							八卦台大
-						p.lead(style="font-size:20px;") 問卦、爆卦，關注台大名人或潮人，且保有隱私。
+						
+						h1.cover-heading(style="font-weight:100;font-size:60px;") 
+							i.icon-volume-up.icon-spin
+							八卦台大 βeta  
+						p.lead(style="color:red;font-size:20px;") 問卦、爆卦，關注台大名人或潮人，且保有隱私。
 						.text1(style="text-align:center;")
 							textarea(style="width:500px;height:150px;background-color:#222;color:white;" name="gossipText")
 					.code#checkCode(onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;" onclick="createCode()")
 					.gossip1(style="height:25px;")
 						input#inputCode(style="background-color:#444;text-align:center; float:top;" type="text" placeholder="點圖獲取驗證碼")
-					.gossip2(style="height:60px;")
+					.gossip2(style="font-weight:bold;margin-top:10px;height:50px;")
 						input.btn.btn-danger.btn-lg#Button1(onclick="validateCode();" type="button" value="Gossip!") 
 
 
 
 					.mastfoot
 						.inner
-							p(style="font-size:16px; font-weight:lighter;") 本站保有「碼賽克」內文之權利。
+							p(style="font-size:16px; font-weight:lighter;") 本站保有因隱私問題而「碼賽克」內文之權利。
 							p(style="font-size:16px; font-weight:lighter;") Contact by ntugossip@gmail.com
 
 
