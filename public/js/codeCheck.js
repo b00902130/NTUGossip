@@ -35,7 +35,7 @@ function validateCode(){
         if(confirm("驗證碼正確！確定送出？")){
           $.ajax({
             type: "POST",
-            url: "http://localhost:5000/message",
+            url: "http://ntugossip.herokuapp.com/message",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: JSON.stringify({
