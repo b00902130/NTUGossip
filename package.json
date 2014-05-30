@@ -12,8 +12,11 @@
   "author": "WilsonHuangJi",
   "license": "ISC",
   "dependencies": {
-    "logfmt": "^1.1.2",
-    "express": "^4.3.0",
+    "mongodb": "*",
+    "request": "*",
+    "mongoskin": "*",
+    "mongoose": "~3.8.9",
+    "express": "3.4.8",
     "jade":"*"
   },
   "engines": {

@@ -2,30 +2,75 @@ doctype html
 html
 	head
 		title #{title}
-	body(style="background-color:#FF9D37;background:url(https://fbcdn-sphotos-e-a.akamaihd.net/hphotos-ak-frc3/t31.0-8/133382_4135634149166_1467298214_o.jpg);background-repeat:no-repeat;background-attachment:fixed;background-position:center;background-size:80%;")
+		meta(charset='uft-8')
+		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		link(rel="shortcut icon" href="favicon.ico")
+		link(href="/css/cover.css" rel="stylesheet")
+		link(href="/css/bootstrap.min.css" rel="stylesheet")
+		script(type='text/javascript', src="/js/ie-emulation-modes-warning.js")
+		script(type='text/javascript', src="/js/ie10-viewport-bug-workaround.js")
+		script(type='text/javascript', src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+		script(type='text/javascript', src="/js/bootstrap.min.js")
+		script(type='text/javascript', src="/js/docs.min.js")
+		script(type='text/javascript', src='/js/codeCheck.js')
+
+	body(style="background-color:lighten(#000, 20%);")
+		.site-wrapper
+			.site-wrapper-inner
+				.cover-container
+					.masthead.clearfix
+						.inner
+
+							h3.masthead-brand NTU Gossip
+
+					.inner.cover(onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;")
+						h1.cover-heading(style="font-size:60px;") 
+							八卦台大
+						p.lead(style="font-size:14px;") 八卦無所不在
+						.text1(style="text-align:center;")
+							textarea(style="width:500px;height:150px;background-color:#222;color:white;" name="gossipText")
+							.code(onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;" id="checkCode" onclick="createCode()")
+
+						form#form1(onsubmit="validateCode()")
+							.code1(style="text-align:center;")
+								input#inputCode(type="text")
+							.code2(style="text-align:center;")
+								input.btn.btn-danger.btn-lg#Button1(onclick="validateCode();" type="button" value="Gossip!") 
+
+
+
+					.mastfoot
+						.inner
+							p(style="font-size:16px; font-weight:lighter;") Contact by ntugossip@gmail.com
+
+					
+
+
+
 		//- div(style="background-image:url('https://fbcdn-sphotos-h-a.akamaihd.net/hphotos-ak-frc3/t1.0-9/429441_396740237068494_1396179813_n.jpg';background-repeat:no-repeat;background-attachment:fixed;background-position:center;)")
-		h1(style="font-size:30px;color:white;font-family:Marker Felt;text-align:center;") Welcome to Test Heroku Application from WilsonHuangJi
-		div.pp(style="font-size:18px;color:white;text-align:center;")
-			p(style="color:white;text-align:center;font-family:Helvetica-Neue;") 
-			| Hello, I am trash, but I have a friend who has a big tongue,
-			| He is Gom. His handsome face picture as below!
-		div.haha(style="color:white;text-align:center;")
-			img(style='margin-top:18px;text-align:center;width:30%;height:30%;border-radius:30px;', src='https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-prn2/t1.0-9/10320617_10203131761486774_3072996603546527332_n.jpg',alt='bigTongue' class='img-rounded;')
-		div(style="font-size:20px;color:white;margin-top:20px;text-align:center;")
-			p(style="text-align:center;font-family:Helvetica-Neue;")  
-			| He is so handsome that so many girls and women like him, 
-			| and let me show you how good is him!
-		div(style="color:white;margin-top:20px;text-align:center;")
-			img(style="width:30%;height:30%;border-radius:30px;",src="https://scontent-a-lax.xx.fbcdn.net/hphotos-ash3/t1.0-9/10320473_721003847951683_8940181512815326732_n.jpg")					
-		div(style="font-size:18px;color:white;margin-top:20px;text-align:center;")
-			p(style="text-align:center;font-family:Helvetica-Neue;")  
-			| And you can see this photo, 
-		div(style="margin-top:20px;text-align:center;")
-			img(style="width:30%;height:30%;border-radius:30px;",src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-frc3/t1.0-9/10262249_10152178866688918_8757599073894465196_n.jpg")
-		div(style="font-size:18px;color:white;margin-top:20px;text-align:center;")
-			p(style="text-align:center;font-family:Helvetica-Neue;")  
-			| As you see, you can understand how charming is he,
-			| and let too many female fans adore him.
-		div(style="margin-top:20px;text-align:center;")
-			img(style="width:30%;height:30%;border-radius:30px;",src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-frc3/t1.0-9/1959632_670461556348574_1534470011_n.jpg")
+		//- h1(style="font-size:30px;color:white;font-family:Marker Felt;text-align:center;") Welcome to Test Heroku Application from WilsonHuangJi
+		//- div.pp(style="font-size:18px;color:white;text-align:center;")
+		//- 	p(style="color:white;text-align:center;font-family:Helvetica-Neue;") 
+		//- 	| Hello, I am trash, but I have a friend who has a big tongue,
+		//- 	| He is Gom. His handsome face picture as below!
+		//- div.haha(style="color:white;text-align:center;")
+		//- 	img(style='margin-top:18px;text-align:center;width:30%;height:30%;border-radius:30px;', src='https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-prn2/t1.0-9/10320617_10203131761486774_3072996603546527332_n.jpg',alt='bigTongue' class='img-rounded;')
+		//- div(style="font-size:20px;color:white;margin-top:20px;text-align:center;")
+		//- 	p(style="text-align:center;font-family:Helvetica-Neue;")  
+		//- 	| He is so handsome that so many girls and women like him, 
+		//- 	| and let me show you how good is him!
+		//- div(style="color:white;margin-top:20px;text-align:center;")
+		//- 	img(style="width:30%;height:30%;border-radius:30px;",src="https://scontent-a-lax.xx.fbcdn.net/hphotos-ash3/t1.0-9/10320473_721003847951683_8940181512815326732_n.jpg")					
+		//- div(style="font-size:18px;color:white;margin-top:20px;text-align:center;")
+		//- 	p(style="text-align:center;font-family:Helvetica-Neue;")  
+		//- 	| And you can see this photo, 
+		//- div(style="margin-top:20px;text-align:center;")
+		//- 	img(style="width:30%;height:30%;border-radius:30px;",src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-frc3/t1.0-9/10262249_10152178866688918_8757599073894465196_n.jpg")
+		//- div(style="font-size:18px;color:white;margin-top:20px;text-align:center;")
+		//- 	p(style="text-align:center;font-family:Helvetica-Neue;")  
+		//- 	| As you see, you can understand how charming is he,
+		//- 	| and let too many female fans adore him.
+		//- div(style="margin-top:20px;text-align:center;")
+		//- 	img(style="width:30%;height:30%;border-radius:30px;",src="https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-frc3/t1.0-9/1959632_670461556348574_1534470011_n.jpg")
 
