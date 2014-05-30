@@ -1,7 +1,9 @@
-var gossipSchema = new Schema({
+var mongoose = require('mongoose');
+
+var gossipSchema = mongoose.Schema({
     id: { type: String},
     text: { type: String, required: true},
     date: { type: Date, default: Date.now}
 });
 
-var gossipObject = mongoose.model('gossipObject', gossipSchema);
+module.exports = mongoose.model('gossipObject', gossipSchema);
