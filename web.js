@@ -6,7 +6,7 @@ var app = express();
 var mongoose = require('mongoose');
 
 var gossipObject = require('./routes/model.js')
-var mongoURL = "mongodb://aaa:aaa@ds051788.mongolab.com:51788/whj1"
+var mongoURL = "mongodb://gg123:321gg@ds051788.mongolab.com:51788/whj1"
 
 mongoose.connect(mongoURL, function(err){
   if(err) {
@@ -46,7 +46,7 @@ app.post('/message', function(req, res) {
     // gossipObject.count({}, function(err, count){
     //   message.id = count.toString();
     // })
-    message.id =  counter.toString();
+    message.id =  "save";
 
     message.text = req.body.mes;
 
@@ -69,6 +69,58 @@ app.post('/message', function(req, res) {
     });
 });
 
+app.get('/manage/all', function(req, res) {
+  gossipObject.find( function ( err, list, count ){
+    res.json( {
+        title : 'All list',
+        todos : list,
+        count : count
+    });
+  });
+});
+
+app.get('/manage/new', function(req, res) {
+  gossipObject.find({id: "new"}, function ( err, list, count ){
+    res.json( {
+        title : 'All list',
+        todos : list,
+        count : count
+    });
+  });
+});
+
+app.put('/manage/pos/:id', function(req, res) {
+  console.log(typeof(req.params.id));
+
+  gossipObject.findOne( {_id:req.params.id}, function ( err, list ){
+    if(err){
+      console.log("errrrrrrr");
+    }    
+    list.id = "posted" ;
+    list.save(function(err, list, count){
+      console.log("posted success");
+      res.json( {
+        find : list
+      })
+    })  
+  });
+});
+
+app.del('/manage/del/:id', function(req, res) {
+  console.log(typeof(req.params.id));
+
+  gossipObject.findOne( {_id:req.params.id}, function ( err, list ){
+    if(err){
+      console.log("errrrrrrr");
+    }    
+    list.remove(function(err, list, count){
+      console.log("remove success");
+      res.json( {
+        find : list
+      })
+    })  
+  });
+});
 
 var port = Number(process.env.PORT || 5000);
 app.listen(port, function() {
