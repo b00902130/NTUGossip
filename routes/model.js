@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 var gossipSchema = mongoose.Schema({
-    id: { type: String},
+    status: { type: String},
     text: { type: String, required: true},
     date: { type: Date, default: Date.now}
 });

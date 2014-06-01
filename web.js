@@ -46,7 +46,7 @@ app.post('/message', function(req, res) {
     // gossipObject.count({}, function(err, count){
     //   message.id = count.toString();
     // })
-    message.id =  "save";
+    message.status =  "save";
 
     message.text = req.body.mes;
 
@@ -80,7 +80,7 @@ app.get('/manage/all', function(req, res) {
 });
 
 app.get('/manage/new', function(req, res) {
-  gossipObject.find({id: "new"}, function ( err, list, count ){
+  gossipObject.find({status: "new"}, function ( err, list, count ){
     res.json( {
         title : 'All list',
         todos : list,
@@ -96,7 +96,7 @@ app.put('/manage/pos/:id', function(req, res) {
     if(err){
       console.log("errrrrrrr");
     }    
-    list.id = "posted" ;
+    list.status = "posted" ;
     list.save(function(err, list, count){
       console.log("posted success");
       res.json( {
