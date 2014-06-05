@@ -19,7 +19,7 @@ function validateCode(){
     var text = $('#gossipText').val();
     // alert(text);
     if( text == ""){
-      alert("ff");
+      alert("請輸入內容！");
       return "Failed";
     }
     if (inputCode.length <= 0){
