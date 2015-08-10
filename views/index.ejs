@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NTU Gossip</title>
+        <meta charset="uft-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="/css/favicon.ico">
+        <link href="/css/cover.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <script type="text/javascript" src="/js/ie-emulation-modes-warning.js"></script>
+        <script type="text/javascript" src="/js/ie10-viewport-bug-workaround.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/js/docs.min.js"></script>
+        <script type="text/javascript" src="/js/parse-1.5.0.js"></script>
+        <script type="text/javascript" src="/js/codeCheck.js"></script>
+    </head>
+    <body style="background-color:lighten(#000, 20%);">
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="masthead clearfix">
+                        <div class="inner">
+                            <h3 class="masthead-brand">NTU Gossip</h3>
+                        </div>
+                    </div>
+                    <div class="inner cover">
+                        <h1 style="font-weight:100;font-size:60px;" class="cover-heading">
+                            <i class="icon-volume-up icon-spin"></i>八卦台大 βeta  
+                        </h1>
+                        <p style="color:red;font-size:20px;" class="lead">匿名問卦、爆卦，關注台大名人或潮人。</p>
+                        <div style="border:0px;text-align:center;" class="text1">
+                            <textarea style="resize:none;width:500px;height:150px;background-color:#222;color:white;" id="gossipText"></textarea>
+                        </div>
+                    </div>
+                    <div id="checkCode" style="margin-top:10px;margin-bottom:10px;" onselectstart="return false;" ondragstart="return false;" oncontextmenu="return false;" onclick="createCode()" class="code">
+                    </div>
+                    <div style="height:25px;" class="gossip1">
+                        <input id="inputCode" style="background-color:#444;text-align:center; float:top;" type="text" placeholder="點圖獲取驗證碼">
+                    </div>
+                    <div style="font-weight:bold;margin-top:10px;height:70px;" class="gossip2">
+                        <input id="Button1" onclick="validateCode();" type="button" value="Gossip!" class="btn btn-danger btn-lg">
+                    </div>
+                    <div class="mastfoot">
+                        <div class="inner">
+                            <p style="font-size:16px; font-weight:lighter;">Contact by ntugossip@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

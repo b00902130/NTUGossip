@@ -1,4 +1,8 @@
 var code;
+
+Parse.initialize("7fddgKWTO9XoFuYjRi0i8XacKX97i6PYV6fdWpA7", "99XlWsWD7wjRQF6C6tlPXdAmOUaWoPAVEF0IIKCe");
+var NTUGossipPost = Parse.Object.extend("NTUGossipPost");
+
 function createCode() {
     code = "";
     var codeLength = 6; //驗證碼的長度
@@ -14,10 +18,14 @@ function createCode() {
     }
     $('#inputCode').focus();
 }
+
 function validateCode(){
     var inputCode = document.getElementById("inputCode").value;
+    var ntuGossipPost = new NTUGossipPost()
+    ntuGossipPost.set("message", $('#gossipText').val());
+    ntuGossipPost.set("isConfirm", false);
     var text = $('#gossipText').val();
-    // alert(text);
+    var nowDate = Date();
     if( text == ""){
       alert("請輸入內容！");
       return "Failed";
@@ -30,35 +38,23 @@ function validateCode(){
         createCode();
     }
     else{
-        // alert("驗證碼正確！");
-        // Post to server,
         if(confirm("驗證碼正確！確定送出？")){
-          $.ajax({
-            type: "POST",
-            url: "http://ntugossip.herokuapp.com/message",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            data: JSON.stringify({
-              mes: text
-            }),
-            success: function (data) {
-                console.log("Success: POST new item");
-                alert("送出成功。");
-                if (typeof(data.re) == 'string')
-                  window.location = data.re;
-            },
-            error: function (rsp){
-                console.log("Failed: POST new item");
-                // console.log(rsp);
-                alert("噢不，好像失敗了。");
-            }
-          });
+            ntuGossipPost.save(null, {
+                success: function(ntuGossipPost) {
+                // Execute any logic that should take place after the object is saved.
+                    // alert('New object created with objectId: ' + ntuGossipPost.id);
+                    alert("送出成功。");
+                },
+                error: function(ntuGossipPost, error) {
+                // Execute any logic that should take place if the save fails.
+                // error is a Parse.Error with an error code and message.
+                    alert('Failed to create new object, with error code: ' + error.message);
+                }
+            });
         }
         else{
           ;
         }
-
-
     }
 }
 
