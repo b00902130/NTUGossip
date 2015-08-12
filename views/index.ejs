@@ -18,6 +18,23 @@
         <script type="text/javascript" src="/js/codeCheck.js"></script>
     </head>
     <body style="background-color:lighten(#000, 20%);">
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1159884910692055',
+          xfbml      : true,
+          version    : 'v2.4'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
         <div class="site-wrapper">
             <div class="site-wrapper-inner">
                 <div class="cover-container">
@@ -45,6 +62,12 @@
                     </div>
                     <div class="mastfoot">
                         <div class="inner">
+                            <div
+                              class="fb-like"
+                              data-share="true"
+                              data-width="360"
+                              data-show-faces="true">
+                            </div>
                             <p style="font-weight:lighter;">Version AME42A</p>
                             <p style="font-size:16px; font-weight:lighter;">Contact by ntugossip@gmail.com</p>
                         </div>
@@ -53,4 +76,5 @@
             </div>
         </div>
     </body>
+
 </html>
